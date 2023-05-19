@@ -1,0 +1,144 @@
+<div>
+  <div class="mt-2 pt-2 pb-2 mb-2 d-flex justify-content-evenly">
+    <div>
+      <p class="fs-3 fw-bold">Users</p>
+    </div>
+    <div class="adduser">
+      <a
+        (click)="ShowUpdateModel(form)"
+        class="btn btn-primary btn-lg fs-3 fw-bold"
+        >+ Add User</a
+      >
+    </div>
+  </div>
+  <table class="table table-success table-striped table-hover text-start">
+    <thead>
+      <tr class="">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>
+          Address
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" #row>
+        <td>
+          <a routerLinkActive="ancor" routerLink="/albums/{{ user.id }}">{{
+            user.name
+          }}</a>
+        </td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>
+          <tr>
+            <td>{{ user.street }}</td>
+            <td>{{ user.suite }}</td>
+            <td>{{ user.city }}</td>
+          </tr>
+        </td>
+        <td>
+          <a class="btn btn-success" routerLink="/users/{{ user.id }}"
+            >Update</a
+          >
+        </td>
+        <td>
+          <a class="btn btn-danger" routerLink="/users/{{ user.id }}">delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bg-danger position-absolute w-50">
+    <form
+      #form
+      class="text-start"
+      style="display: none"
+      (ngSubmit)="
+        Add(
+          name.value,
+          email.value,
+          phone.value,
+          city.value,
+          suite.value,
+          street.value
+        )
+      "
+    >
+      <h3 class="text-warning pt-3">User Information</h3>
+      <hr />
+      <br />
+      <input
+        class="form-control"
+        type="text"
+        id="username"
+        #name
+        placeholder="Name"
+        required
+      /><br />
+
+      <input
+        class="form-control"
+        type="email"
+        id="email"
+        #email
+        placeholder="Email"
+        required
+      /><br />
+
+      <input
+        class="form-control"
+        type="tel"
+        id="phone"
+        #phone
+        required
+        placeholder="Phone Number"
+      /><br />
+
+      <div class="address">
+        <p class="text-start ms-2">Address</p>
+        <input
+          class="form-control"
+          type="text"
+          id="city"
+          #city
+          placeholder="City"
+          required
+        />
+
+        <input
+          class="form-control"
+          type="text"
+          id="suite"
+          #suite
+          placeholder="Suite"
+          required
+        />
+
+        <input
+          class="form-control"
+          type="text"
+          id="street"
+          #street
+          placeholder="Street"
+          required
+        />
+      </div>
+      <input type="submit" value="ADD" class="btn btn-success" />
+      <button
+        type="button"
+        class="btn btn-outline-danger mt-1 me-2 rounded-pill position-absolute top-0 end-0"
+        (click)="onCancelClick(form)"
+      >
+        X
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<form
+  (ngSubmit)="
+    Update(
+      name.value,
+      email.value,
+      phone.value,
+      city.value,
+      street.value,
+      suit.value
+    )
+  "
+  class=""
+>
+  <input
+    value="{{ updatedData.name }}"
+    type="text"
+    #name
+    class="form-control"
+    id="name"
+  />
+  <input
+    value="{{ updatedData.email }}"
+    type="email"
+    #email
+    class="form-control"
+    id="email"
+  />
+  <input
+    value="{{ updatedData.phone }}"
+    type="tel"
+    #phone
+    class="form-control"
+    id="number"
+  />
+  <div>
+    <p>Address</p>
+    <input
+      value="{{ updatedData.city }}"
+      type="text"
+      #city
+      class="form-control"
+    />
+    <input
+      value="{{ updatedData.suite }}"
+      type="text"
+      #suit
+      class="form-control"
+    />
+    <input
+      value="{{ updatedData.street }}"
+      type="text"
+      #street
+      class="form-control"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
