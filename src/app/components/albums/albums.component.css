@@ -1,0 +1,12 @@
+.base {
+  padding-top: 90px;
+}
+.parent {
+  border-radius: 10px solid rdarked;
+}
+.child {
+  /* width: 20%; */
+  /* background-color: aquamarine; */
+  height: 200px;
+  margin: 5px;
+}

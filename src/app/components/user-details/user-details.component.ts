@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MyServiceService } from 'src/app/services/my-service.service';
 
@@ -10,13 +10,13 @@ import { MyServiceService } from 'src/app/services/my-service.service';
 export class UserDetailsComponent {
   Id = 0;
   updatedData: any = '';
+
   constructor(myRout: ActivatedRoute, public myservice: MyServiceService) {
     this.Id = myRout.snapshot.params['id'];
   }
   ngOnInit(): void {
     this.myservice.GetUserById(this.Id).subscribe({
       next: (data) => {
-        // console.log(data);
         this.updatedData = data;
       },
       error: (err) => {
@@ -25,6 +25,7 @@ export class UserDetailsComponent {
     });
   }
 
+  // Not Finnished YET
   Update(
     name: any,
     email: any,
@@ -39,8 +40,8 @@ export class UserDetailsComponent {
       phone: phone,
       city: city,
       street: street,
-      suite: street,
+      suite: suite,
     };
-    this.myservice.UpdateData(obj, this.Id).subscribe();
+    this.myservice.setData2(obj);
   }
 }

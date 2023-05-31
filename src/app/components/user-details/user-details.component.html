@@ -1,58 +1,70 @@
-<form
-  (ngSubmit)="
-    Update(
-      name.value,
-      email.value,
-      phone.value,
-      city.value,
-      street.value,
-      suit.value
-    )
-  "
-  class=""
->
-  <input
-    value="{{ updatedData.name }}"
-    type="text"
-    #name
-    class="form-control"
-    id="name"
-  />
-  <input
-    value="{{ updatedData.email }}"
-    type="email"
-    #email
-    class="form-control"
-    id="email"
-  />
-  <input
-    value="{{ updatedData.phone }}"
-    type="tel"
-    #phone
-    class="form-control"
-    id="number"
-  />
-  <div>
-    <p>Address</p>
-    <input
-      value="{{ updatedData.city }}"
-      type="text"
-      #city
-      class="form-control"
-    />
-    <input
-      value="{{ updatedData.suite }}"
-      type="text"
-      #suit
-      class="form-control"
-    />
-    <input
-      value="{{ updatedData.street }}"
-      type="text"
-      #street
-      class="form-control"
-    />
-  </div>
+<div class="container mt-5 base">
+  <div class="row">
+    <form>
+      <input
+        value="{{ updatedData.name }}"
+        type="text"
+        #name
+        class="form-control"
+        id="name"
+      />
+      <br />
+      <input
+        value="{{ updatedData.email }}"
+        type="email"
+        #email
+        class="form-control"
+        id="email"
+      />
+      <br />
+      <input
+        value="{{ updatedData.phone }}"
+        type="tel"
+        #phone
+        class="form-control"
+        id="number"
+      />
+      <br />
+      <div>
+        <span class="d-block text-start fs-5 fw-bold">Address:</span><br />
+        <input
+          value="{{ updatedData.address.city }}"
+          type="text"
+          #city
+          class="form-control"
+        />
+        <br />
+        <input
+          value="{{ updatedData.address.suite }}"
+          type="text"
+          #suit
+          class="form-control"
+        />
+        <br />
+        <input
+          value="{{ updatedData.address.street }}"
+          type="text"
+          #street
+          class="form-control"
+        />
+        <br />
+      </div>
 
-  <button type="submit" class="btn btn-success">Save</button>
-</form>
+      <button
+        (click)="
+          Update(
+            name.value,
+            email.value,
+            phone.value,
+            city.value,
+            street.value,
+            suit.value
+          )
+        "
+        class="col-3 btn btn-outline-success btn-lg fs-3 fw-bold"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>

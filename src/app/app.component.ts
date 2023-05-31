@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Demo';
+  dataFromUser = '';
+  GetDataFromUserDetails(data: any) {
+    // this.dataFromUser = data;
+    console.log(`Data From User = ${data}`);
+  }
 }

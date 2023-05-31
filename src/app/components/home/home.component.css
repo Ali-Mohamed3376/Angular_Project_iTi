@@ -1,3 +1,96 @@
-.ancor {
+.base {
+  padding-top: 90px;
+}
+
+.activelink {
   color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  border: 2px solid #06d85f;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  color: #017e35;
+}
+.button:hover {
+  background: #06d85f;
+  color: black;
+}
+
+.overlay {
+  position: fixed;
+  top: -40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 130px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+.popup .close:hover {
+  color: red;
+}
+
+input[value="ADD"]:hover {
+  letter-spacing: 1px;
+  transition: 1s;
+}
+
+.address_inputs input {
+  outline: none;
+  border: none;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+.address_inputs input:focus {
+  border: 2px solid #0dcaf0;
+  transition: 0.1s;
+  box-sizing: content-box;
 }

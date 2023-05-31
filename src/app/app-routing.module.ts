@@ -11,9 +11,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'users', component: HomeComponent },
   { path: 'users/:id', component: UserDetailsComponent },
-  // { path: 'add', component: AddUserComponent },
-  { path: 'albums/:id', component: AlbumsComponent },
-  { path: 'photos/:id', component: PhotosComponent },
+  { path: 'users/data', component: UserDetailsComponent },
+  { path: 'users/:id/albums', component: AlbumsComponent },
+  { path: 'users/:id/albums/:id', component: PhotosComponent },
   { path: '**', component: ErrorComponent },
 ];
 

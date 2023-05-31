@@ -1,1 +1,47 @@
-<p>photos works!</p>
+<div class="base">
+  <div class="data bg-primary">
+    <table class="table table-striped text-start fs-6 fw-bold">
+      <thead>
+        <tr class="text-light">
+          <td>Name</td>
+          <td>Email</td>
+          <td>Phone</td>
+          <td>Address</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-light">{{ dataofUsarFromAlbums.name }}</td>
+          <td class="text-light">{{ dataofUsarFromAlbums.email }}</td>
+          <td class="text-light">{{ dataofUsarFromAlbums.phone }}</td>
+          <td class="text-light">
+            <tr>
+              <td class="text-light">
+                {{ dataofUsarFromAlbums.address.city }}
+              </td>
+              <td class="text-light">
+                {{ dataofUsarFromAlbums.address.suite }}
+              </td>
+              <td class="text-light">
+                {{ dataofUsarFromAlbums.address.street }}
+              </td>
+            </tr>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <div class="row">
+      <p class="text-warning fs-5 fw-bold">
+        {{ dataofUsarFromAlbums.name }} Photos
+      </p>
+      <hr />
+      <div class="col-3" *ngFor="let photo of userPhotos">
+        <div class="mb-4">
+          <img class="w-100 h-50" src="{{ photo.url }}" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

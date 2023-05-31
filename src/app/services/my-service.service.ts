@@ -5,23 +5,45 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class MyServiceService {
+  private data: any;
+  private data2: any;
+
+  setData(data: any) {
+    this.data = data;
+  }
+
+  setData2(data: any) {
+    this.data2 = data;
+  }
+
+  getData() {
+    return this.data;
+  }
+  getData2() {
+    return this.data2;
+  }
+  /* */
   constructor(private readonly myClint: HttpClient) {}
 
-  private readonly BASE_URL = '  http://localhost:3000/users';
+  private readonly BASE_URL = '  https://jsonplaceholder.typicode.com';
 
+  // Get All Useres
   GetAllUsers() {
-    return this.myClint.get(this.BASE_URL);
+    return this.myClint.get(this.BASE_URL + '/users');
   }
 
+  // Get User by Id
   GetUserById(id: any) {
-    return this.myClint.get(this.BASE_URL + '/' + id);
+    return this.myClint.get(this.BASE_URL + '/users/' + id);
   }
 
-  AddUser(newuser: any) {
-    return this.myClint.post(this.BASE_URL, newuser);
+  // Get User Albums
+  GetUserAlbums(id: any) {
+    return this.myClint.get(this.BASE_URL + '/users/' + id + '/albums');
   }
 
-  UpdateData(myuser: any, id: any) {
-    return this.myClint.put(this.BASE_URL + '/' + id, myuser);
+  // Get User Photos
+  GetUserPhotos(id: any) {
+    return this.myClint.get(this.BASE_URL + '/albums/' + id + '/photos');
   }
 }
